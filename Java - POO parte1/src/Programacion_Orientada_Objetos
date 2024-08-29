@@ -1,0 +1,364 @@
+
+
+											● PARADIGMA DE OBJETOS
+
+	Un Paradigma es un 'Modelo' o 'Patron' en cualquier disciplina científica. Es una forma de resolver los problemas. El 'Paradigma
+	de Programación Orientada a Objetos' es la implentación de un 'Paradigma', una propuesta, dentro de todos los paradigmas
+	que existen en la programación.
+
+
+	• PROGRAMACIÓN ORIENTADA A OBJETOS: "POO"
+ 	  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+	Un 'MODELO' es una abstracción de la realidad, una respresentación de la realidad simplificada, como por podría una
+	maqueta de una casa. El objetivo final es poder pasar del 'modelo' a la 'realidad'. De la misma forma los sistemas de
+	información deben ser modelados, respresentarlos mediante un esquema previo, para luego poder tomar como referencia el modelo
+	y contruir en base al mismo.
+
+	El MODELADO ORIENTADO A OBJETOS consiste en interpretar un sistema como partes independientes que se comunican entre sí. Las
+	partes independientes se denominan 'OBJETOS'. Dichos objetos tendrán comunicación, intereacción y una relación entre sí. Es decir,
+	se tratará de representar la realidad como 'objetos' realacionados entre sí	comunicandose. En otras palabras, lo que plantea EL
+	MODELADO ORIENTADO A OBJETOS es	poder representar aspectos de la realidad como una sumatoría de objetos interectuando a través de
+	atributos y métodos.
+
+	Antes se entendía a el Programa como una sola pieza, eso acumulaba muchas líneas de código, y por la tanto era
+	complejo tanto de desarollar como de matener. A través del 'MODELADO ORIENTADO A OBJETOS' se tiene sus partes facilmente
+	separadas, en donde cada burbuja resuelve un problema mucho mas chico y luego se integra. Cuando hay un problema o
+	modificación solo hay que ubicar cual sería la burbuja correspondiente a modificar, y no es necesario modificar todo el
+	programa. Por otro lado es mas fácil reutilizar 'burbujas' que programas enteros.
+
+	El OOP entonces se basa en el concepto de agrupar 'codigo' y 'datos' (métodos y atributos) juntos en una misma unidad
+	llamada 'CLASE'. Es decir, un molde para crear objetos.
+
+	*Ventajas de POO:
+	- Altamente Escalable (se puede mejorar, se puede modificar fácilmente)
+	- Fácil de Mantener   (al estar todo independizado es mas facil de corregir los errores de forma puntal, sin tener que
+	                       cambiar todo)
+	- Fácil de Reutilizar (se puede reutilizar en mas de un programa)
+
+
+	• CLASES:
+	  ¨¨¨¨¨¨
+	Una CLASE es un conjunto de métodos y atributos con características similares y una misma finalidad, organizados para poder
+	definir e instanciar a un objeto. Las 'Clases' serán nuestro 'molde' para crear cada 'objeto' nuevo, y cada objeto nuevo
+	tendrá los métodos y atributos definidos en la clase. Generalmente las 'Clases' suelen detectarse como 'SUSTANTIVOS' en
+	'SINGULAR'. Los atributos serán las variables o datos de cada objeto, y los métodos las accciones que podrá	realizar cada objeto.
+    En la 'Clase' tambíen se indicará el tipo de relación que tienen sus objetos respecto a los objetos de otras clases.
+	En Java cada Clase sera un objeto de Class (java.lang.Class)
+
+	UML: Técnica de representar gráficamente clases y objetos.
+
+    ------------------
+    |  Nombre (clase)|  ----> SINGULAR
+    |--------------- |
+    |	Artibuto1:   |
+    |	Artibuto2:   |
+    |                |
+    |----------------|
+    |	Metodo1:     |
+    |	Metodo2:	 |
+    |                |
+    ------------------
+
+    	- Sintaxis
+
+        public class id_Clase {
+
+        }
+
+
+	• ATRIBUTOS:
+	 ¨¨¨¨¨¨¨¨¨¨
+	Son aquellas caratecrísticas principales que hacen que nuestro objeto sea único y nos ayudan a describir el mismo. Es decir, aquellas
+	caracteríscas que son únicas de la clase y a su vez diferencian un objeto de otro. A nivel sistema los vamos a materializar como
+	'variables' contenidas dentro de una CLASE con un tipo de dato asociado. Los atributos a diferencia de las variables, tienen un proceso
+	de inicialización automático. Es decir, que sin no se incializan con ningún valor, los atributos númericos se inicializan en '0' y cualquier otro
+	atributo en 'null'.
+
+	En Java los atributos son variables de la Clase java.lang.reflect.Field
+
+		- Sintaxis:
+
+		public class id_Clase {
+
+	    	// ATRIBUTOS
+    		String atributo1;
+		    String atributo2;
+		    boolean atributo3;
+		    int atributo4;
+
+	    	// METODOS
+			 	.....
+		}
+
+
+ 	• MÉTODOS:
+ 	 ¨¨¨¨¨¨¨¨
+	Los MÉTODOS serán las ACCIONES que podrá realizar cada objeto instanciado, motivo por el cual se pueden identificar como
+	VERBOS. Los métodos entonces serán un 'conjunto de acciones' definidas dentro de una clase, y cada método tendrá la
+	particularidad de realizar una 'acción' determinada.
+
+	En Java los métodos son objetos de la clase java.lang.reflect.Method
+
+    	- Sintaxis:
+
+		public class id_Clase {
+
+	    	// ATRIBUTOS
+    			.....
+
+	    	// MÉTODOS
+
+		 	public void id_procedimiento(){
+	        ....
+	        Bloque de Codigo
+	        ...
+		    }
+
+			public String id_funcion(){
+		    ....
+		    Bloque de Codigo
+		    ...
+		    return (string);
+		    }
+		}
+
+
+    • OBJETOS:
+  	  ¨¨¨¨¨¨¨¨
+	Son INSTANCIAS de la una clase. El objeto es la razón de ser de la clase, es lo que se termina creando con el 'molde'. Cada
+	objeto respresentara a una situación en particular de la clase. Cada objeto tendrá un estado propio, y estará determinado
+	por el valor de sus atributos. Si bien cada objeto tendrá sus propios valores, todos los 'objetos' podrán realizar las mismas
+	'acciones', es decir, todos	los objetos tendrán los mismos métodos en común.
+
+	En Java quien se encarga de destruir o liberar la memoria de los Objetos que ya no usamos es el 'Garbage Collector' (GC) y
+	lo hace de forma automática administrando la memoria mediante la JVM.
+
+		Sintaxis:
+
+			Clase id_objeto = new Clase();
+
+
+	• CONSTRUCTORES:
+  	 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+	Son métodos que van a tener como tarea específica 'inicializar' (crear) un nuevo objeto de la clase. Serán los encargados de
+	'construir' el objeto siguiendo el molde de la clase. Los constructores serán métodos específicos cuya única funcion será
+	crear al objeto. Por este motivo, es el único método que tendrá el mismo nombre que la clase, no tienen devolución de
+	parametros y no necesita la palabra reservada 'void' para su declaración.
+
+	Existe la 'Sobrecarga de Constructores', motivo por el cual se podrá declarar más de un constructor por clase con diferentes
+	finalidades. Para invocar un constructor se utilizará la palabra reservada 'new'.
+	Si una clase no tiene constructor definido, Java creará de forma predeterminada un constructor vacío. Cuando se definen
+	constructores, Java deja de ofrecer el constructor vacío por defecto.
+
+	En Java los constructores son objetos de la clase java.lang.reflect.Constructors
+
+		Sintaxis:
+
+		public class id_Clase {
+
+	    	// ATRIBUTOS
+		    	.....
+
+	    	// CONSTRUCTORES
+
+		    public id_Clase() {
+
+		    }
+
+			// METODOS
+			 	.....
+
+	  	}
+
+	• SOBRECARGA DE NOMBRES 'THIS.':
+  	Muchas veces debemos utilizar un parámetro para asignar el valor a un atributo y nos surge la necesidad de pensar en nombrar los
+  	parámetros de forma tal que no “choquen” con los nombres de los atributos. Para evitar tener que estar pensando diferentes nombres y
+  	poder indicar a Java en que momento se hace referencia al atributo y en que momento se hace referencia al parámetro, existe la palabra
+  	reservada 'this.'. Con 'this.' vamos a indicar que se esta haciendo referencia al atributo de la clase y no al parámetro del método.
+
+ 	- Ejemplo:
+
+ 		public Auto(String marca, String modelo, String color) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.color = color;
+    }
+
+	En este caso, this.marca, this.modelo, y this.color hacen referencia a los atributos de la clase Auto, mientras que marca, modelo, y color se refieren a los parámetros.
+
+
+	• Generalmente la forma de organizar una Clase es la siguiente:
+      ************************************************************
+    	public class id_Clase {
+
+	    // ATRIBUTOS
+		    String atributo1;
+		    String atributo2;
+		    boolean atributo3;
+		    int atributo4;
+
+
+	    // CONSTRUCTORES
+		    public id_Clase() {
+		    }
+
+		    public id_Clase(String atributo1, String atributo2, boolean atributo3, int atributo4) {
+		        this.atributo1 = atributo1;
+		        this.atributo2 = atributo2;
+		        this.atributo3 = atributo3;
+		        this.atributo4 = atributo4;
+		    }
+
+
+
+	    // METODOS
+		    public void id_procedimiento(){
+		        ....
+		        Bloque de Codigo
+		        ...
+		    }
+
+			public String id_funcion(){
+		    ....
+		    Bloque de Codigo
+		    ...
+		    return (string);
+		    }
+
+	************************************************************
+
+	● ENCAPSULACMIENTO:
+  	  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+	Dado que hay artibutos que son muy sensibles para dejar al libre alberdio de su modificación se crea el ENCAPSULAMIENTO. Su
+	filosofía es hacer que los atributos de las clases se puedan editar solo a través de métodos controlados. Básicamente el
+	'encapsulamiento' se utiliza para brindar mas seguridad en la aplicación, evitar que la información se filtre y dar mucho más
+	orden en las clases.
+	El 'Encapsulamiento' entonces será simplemente la capacidad de ocultar los 'atributos' de una 'clase' (encapsularlos) y poder
+	modificar/acceder a los mismos únicamente a través de un 'ambiente controlado', es decir, a través de métodos. La forma en la
+	que vamos a poder generar nuestro encapsulamiento sera través de la 'visibilidad' de nuestros miembros. Los métodos especifícamente
+	pensados para modificar/acceder a un atributo privado serán los getters y setters.
+
+
+	• VISIBILIDAD:
+	  ¨¨¨¨¨¨¨¨¨¨¨¨
+	Es la posibilidad de ver o no un 'atributo o método' (miembro) de la clase. La 'Visibilidad' estará establecida por los
+	modificadores de visibilidad 'private', 'public', 'protected', 'default'.
+
+	- PRIVATE: Si un miembro es 'private' (privado) ÚNICAMENTE se podrá acceder al mismo dentro de la MISMA CLASE, no se podrá
+	acceder desde fuera de la clase.
+
+	- 'DEFAULT' o 'PACKAGE': Si no se indica NINGÚN modificador de Visibilidad (omitido) el miembro SOLAMENTE será accesible
+	desde la misma clase y desde las clases que esten dentro del mismo paquete.
+
+	- 'PROTECTED': Si un 'Miembro' es 'protected' se podrá acceder desde de la misma clase, desde clases que esten dentro del
+	mismo 'Paquete' y tambien desde 'Clases hijas'.
+
+	- 'PUBLIC': Es el más permisivo de todos. Si un miembro es 'public' (público) se podrá acceder tanto desde la propia clase
+	como desde cualquier otra clase (externa).
+
+	. TABLA DE MODIFICADORES DE ACCESO
+
+	Modificador     La misma clase  Mismo paquete   Subclase    Otro paquete
+	private             ✓               🗴              🗴           🗴
+	default             ✓               ✓              🗴           🗴
+	protected           ✓               ✓              ✓           🗴
+	public              ✓               ✓              ✓           ✓
+
+
+	Para generar entonces el 'encapsulamiento' de una clase hay a declarar los atributos como PRIVATE y los métodos como PUBLIC. De
+	esta forma SOLO se podrá acceder a un atributo a través de los métodos. Se evita el acceso directo al atributo y lo único a lo
+	que se podrá acceder es a los métodos. En UML suele presentarse con el signo 'menos' (-) a los miembros privados y con el signo
+	'más' (+) a los miembros públicos.
+
+	. Ejemplo:
+
+	     ---------------------------------
+	    |        	  Auto               |
+	    |--------------------------------|
+	    | -       velocidad: int         |
+	    |                                |
+	    |--------------------------------|
+	    | +      acelerar(): void        |
+	    | +        frenar(): void        |
+	    |                                |
+	    |                                |
+	    |                                |
+	    ----------------------------------
+
+
+	Si al atributo velocidad lo declaramos privado(-), prohibimos que se acceda al atributo directamente, y que este solo se pueda 	modificar a través de losmMétodos públicos (+). En este caso evitariamos la posibilidad de que se pueda modificar la 'velocidad'
+	libremente, y únicamente se pueda modificar a traves de los métodos 'acelerar()' y 'frenar()' en un ambiente controlado.
+
+
+	 class Auto {
+	// ATRIBUTOS
+	    private int velocidad;
+
+
+	// METODOS
+	    public void acelerar() {
+	        velocidad = velocidad + 10;
+	        if(velocidad>100) velocidad=100;
+	    }
+
+	    public void frenar() {
+	    velocidad = velocidad - 10;
+	    }
+	}
+
+
+	. Ejemplo2:
+
+	El atributo saldo es 'privado', solo puede modificarse a través de los métodos públicos depositar() y extraer().
+
+	    ----------------------------------
+	    |         Cuenta Bancaria        |
+	    |--------------------------------|
+	    | -         saldo: int           |
+	    |                                |
+	    |--------------------------------|
+	    | +	    depositar(int): void     |
+	    | +	    extraer(int): void       |
+	    |                                |
+	    |                                |
+	    |                                |
+	    ----------------------------------
+
+
+   	● SETTERS Y GETTERS:
+      ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+	Son métodos de acceso 'público' a atributos 'privados'. Representan la ÚNICA forma de acceder a los 'atributos privados'.
+	Estos 'métodos' deben ser creados con un estándar de identificación, para diferenciarlos fácilmente.
+
+	. SETTER -> Método utilizado únicamente para setear un valor a un atributo privado. Se utilizará la palabra reserva 'set'.
+	            Es un método 'void' sin valor de retorno.
+
+	            public void setIdAtributo (tipo_dato id_atributo) {
+
+	                    this.id_atributo = id_atributo
+
+	            }
+
+	    .Ejemplo:   public void setNombre(String nombre) {
+	                    this.nombre = nombre;
+	                }
+
+
+	. GETTER -> Método utilizado únicamente para obtener el valor de un atributo privado. Se utilizará la palabra reserva 'get'.
+	            Es un método que retornara un valor.
+
+	            public tipo_dato getIdAtributo () {
+
+	                return id_atributo;
+
+	            }
+
+	    .Ejemplo:   public int getEdad() {
+	                    return edad;
+	                }
+
+
+	Si se desea hacer que una 'clase' sea SOLO LECTURA se asignaran solamente los métodos GETTERS, y por el contrario, si se
+	desea hacer que una 'clase' sea SOLO ESCRITURA se asignaran solamente los métodos SETTERS.
+
+
