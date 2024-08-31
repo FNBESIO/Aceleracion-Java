@@ -1,0 +1,94 @@
+ 										ESTRUCTURA DE CONTROL DE FLUJO: 'CONDICIONALES'
+									   ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+	En informatica se conoce como 'FLUJO' a el recorrido que va haciendo un programa en función de las instrucciones que va
+	ejecutando. En otras palabras, el orden en el se que ejecutan la instrucciones.
+	Las 'ESTRUCTURAS DE CONTROL DE FLUJO' son aquellas sentencias que a partir de una 'condición' van a ejecutar una opción u otra.
+	Son sentencias que nos permiten tomar decisiones acerca de qué opcion debe ejecutar el programa, en base a una
+	condición o expresión que de como resultado verdadero o falso. Mediante el resultado de una condición, se tomara un camino u otro,
+	generenado así las llamadas 'bifurcaciones', una apertura de dos caminos o más, a partir de uno.
+
+
+    ● CONDICIONAL 'IF':
+	La estructura de control 'IF' permite decidir entre dos opciones resultantes de la evaluación de una CONDICIÓN. Si la condición
+	es 'verdadera'(true) se ejecutarán las sentencias contenidas dentro sus llaves {}. Por el contrario, si el resultado de la condición es
+	'falso'(false) no se ejecutará el código declarado en su interior.
+	La CONDICIÓN siempre sera una OPERACIÓN LÓGICA o de COMPARACIÓN con un resultado BOOLEAN. Es decir, el resultado de la condición
+	siempre debe ser un booleano verdadero o falso.  Siempre que el	resultado de la condicion sea 'verdadero' se ejecutará el bloque
+	de códigos contenido. En el caso de que el resultado de la condición sea 'falso', las sentencias contenidas dentro de las llaves {}
+	serán ignoradas	y no se ejecutarán.
+
+	.Sintaxis:
+
+        - Caso 1:
+        if  (condicion) {
+
+            sentenciaTRUE;
+        }
+
+        - Caso 2 - una sola línea:
+        if (condicion)sentenciasTrue;
+
+
+	• CONDICIONAL 'IF - ELSE':
+	Es la extensión del condicional 'IF'. Agrega el 'ELSE' que significa “sino / de lo contrario”. En este caso, cuando el resultado
+	de la condicion sea 'false' va a ejecutar otro Bloque de código definido. Es decir, que a diferencia del anterior 'if' cada condición
+	tendra su bloque de código, va a ejecutar un bloque de código sí o sí.
+
+	.Sintaxis:
+
+	if  (condicion){
+
+	    sentenciaTRUE;
+
+	} else {
+
+	    sentenciaFALSE;
+
+	}
+
+
+	• ESTRUCTURA 'IF - ELSE IF - ELSE':
+	La estructura 'else if' nos brinda una posibilidad de evaluar más de una condición mediante la concatenación de diferentes 'else if'.
+	Se pueden añidar tantos 'else if' como se crea necesario, es decir, se pueden evaluar la cantidad de condiciones que se desee.
+
+	.Sintaxis:
+        if  (condicion 1){
+            sentencia1;
+        } else if (condicion 2){
+             sentencia2;
+        } else if (condicion 3){
+            sentencia3;
+        } else if (condicion N){
+            sentencia_IF_N;
+        } else {
+            sentencia_FINAL;
+        }
+
+
+   	● ESTRUCTURA SWITCH
+    La estructura 'Switch' admite múltiples caminos a partir de la evaluación de una sola 'expresión'. En el caso de que haya
+    un 'case' cuyo valor coincida con el resultado de la expresión evaluada, se ejecutarán el bloque de códigos correspondiente
+    a dicho case. Cada case tendrá su propio bloque de códigos. Por ultimo se ejecutará el 'break' 	que nos sacara fuera del
+    SWITCH para continuar con el programa.
+	En el caso de que el resultado de la expresión evaluada, no coincida con ningún 'case', se ejecutará el 'default' con su
+	correspondiente bloque de códigos. Los unicos tipo de datos que permite como resultadode la 'expresion' son números enteros,
+	char, String. A diferencia del else if, es que permite establecer muchas opciones según el valor de una variable
+	(o expresión) de una forma más orginizada.
+
+    . Sintaxis:
+    switch (expresion){
+        case 1:
+            sentencia1;
+            break;
+        case 2:
+            sentencia2;
+            break;
+        case 3:
+            sentencia3;
+            break;
+        case N:
+            sentenciaN;
+        default:
+            sentenciaDEFAULT;
+            break;
+    }
