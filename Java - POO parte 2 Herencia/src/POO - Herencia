@@ -1,0 +1,201 @@
+ 												● HERENCIA
+												  ¨¨¨¨¨¨¨¨
+En lenguajes orientados a objetos se pueden HEREDAR características (atributos y métodos). La idea de HERENCIA es
+permitir la creación de 'nuevas clases' basadas en 'clases existentes', es decir, que clases existentes puedan
+extender sus características a nuevas clases. Se produce a partir de dos clases relacionadas.
+Es decir, que habrá una 'Clase_Hija' que HEREDARA de otra 'Clase_Padre' sus métodos y atributos. La 'Clase_Principal' se
+denomina 'Clase_Padre' o 'Super_Clase'. La clase que hereda se denomina 'Subclase' o 'Clase_Hija'.
+
+Las 'Clases Hijas' entonces tendrán los mismos atributos y métodos que su clase padre, más sus atributos y métodos
+particulares. Los atributos y métodos heredados no se deben volver a declarar ni escribir, son heredados. Entonces en las
+clases padres se indicarán los atributos y métodos más generales, y se ira especificando hacia sus clases hijas las particularidades.
+La 'Herencia' será indicada en la 'Clase_Hija' a través de la palabra reservada 'extends' seguido de la 'Clase_Padre'.
+
+. SINTAXIS 'MECANISMO DE HERENCIA'
+
+public class Clase_Padre {
+}
+
+public class Clase_Hija extends Clase_Padre {
+}
+
+
+• CONSTRUCTORES EN HERENCIA
+Algo que pasa con los constructores es que no se heredan. Cuando se instancia un objeto de una clase hija, se ejecutará en
+primer lugar el constructor de la clase padre, y luego el constructor de la clase hija. Con la sentencia 'super()', se
+invoca a los constructores de la Superclase. Es decir, al declarar el constructor de la clase hija vamos a poner en la
+primer línea de forma obligatoria la palabra reservada 'super()' con los parámetros del constructor padre correspondientes,
+y luego se ingresarán los parámetros del constructor de la clase hija.
+Es importante recordar que los constructores deben coicidir y existir. Es decir, no puedo invocar un constructor vacío desde
+la Clase Hija si no existe en la Clase Padre, y si se ingresa con parámetros deben coincidir.
+
+
+public class Clase_Padre {
+    //Constructor_Padre
+    public Clase_Padre(parametros_padre){
+        parametros_padre
+    }
+}
+
+public class Clase_Hija extends Clase_Padre {
+    //Constructor_Hijo
+    public Clase_Hija(parametros_hija){
+        super(parametros_padre);
+        parametros_hija;
+    }
+}
+
+
+● PALABRA RESERVADA 'ABSTRACT':
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+• CLASES ABSTRACTAS => PUBLIC ABSTRACT CLASS:
+En determinadas ocasiones, al realizar un programa vamos diseñar clases padres que serán de gran ayuda para poder organizar
+nuestro proyecto, tendrán un gran valor conceptual pero no sera necesario 'instanciar un objeto' de dicha clase. Para
+asegurar que NO SE PUEDAN INSTANCIAR OBJETOS vamos a declrar la clase como ABSTRACTA mediante la palabra reservada
+'abstract'.
+Es decir, pueden existir clases padres de las cuales NO SE CREARAN directamente ningún objeto, pero si se crearan
+clases hijas, y serán sus clases hijas las que van a crear objetos. Las 'clases abstractas' van a servir como BASE
+para que otras clases hijas HEREDEN de ella sus atributos y métodos. En las clases padres se indicarán los atributos
+y métodos mas generales, y se ira especificando hacia sus 'Clases Hijas'.
+
+public abstract class Clase_Padre {
+
+}
+
+* BONUS:
+En las clases abstractas no se puede crear objetos con un constructor de la clase abstracta, pero dentro de una
+variable del tipo 'clase padre abstracta' se puede contener cualquier objeto de clase hija.
+Es decir, se puede crear un contenedor del tipo 'clase padre abstracta' y en la misma instanciar un objeto
+utilizadando el constructor de la clase hija.
+
+Clase_Padre_Abstracta a = new Clase_Hija ();
+
+En este caso, si bien al momento de instanciar habra compatibilidad hay que tener en cuenta que nuestro objeto no podra
+acceder ni a los atributos ni métodos especificos de la clase hija ya que esta dentro de un contenedor clase Padre. Solamente
+estarán disponibles aquellos atributos y métodos que heredados, aunque al momento de crear el objeto se hayan cargados valores
+en el constructor de la clase_hija.
+En el caso de Castear el objeto a un contenedor clase hija se podra acceder a toda la información ingresada. Es decir, la
+información no se pierde pero se debe acceder desde un contenedor compatible con dicha información.
+
+
+• PUBLIC ABSTRACT VOID METHOD:
+Un 'método abstracto' es aquel que solo posee 'firma' y no posee el cuerpo (código). Esto completa la idea de la
+abstracción ya que solamente en clases abstractas se podran declarar métodos abstractos, y estos deberán
+implementarse de forma obligatoria en todas sus clases hijas. Los métodos abstractos no poseen cuerpo, motivo por el cual
+en la clase hija deberá sobreescribir el método y agragear el cuerpo correspondiente de forma obligatoria.
+De esta forma nos aseguramos de que todas las clases hijas implementen si o si una misma firma (nombre), pero cada clase hija
+tendra su propia implementación del método. Es decir, los métodos abstractos nos van a dar la posibilidad de que exista un método
+común a todas sus clases hijas con la misma firma, y según desde que clase hija haya sido instanciado sera su comportamiento.
+Es importante recordar que SOLO las 'clases abstractas' podran poseer 'métodos abstractos, pero esto no necesariamente quiere decir
+que una clase abstracta solo tendra métodos abstractos. Una clase abstracta podra tener tanto métodos con su correspondiente cuerpo,
+como métodos abstractos.
+
+public abstract class Clase_Padre {
+
+    ....
+
+    //Métodos
+
+      public abstract void Metodo_sinRetorno();
+
+      public abstract String Metodo_ConRetorno();
+
+}
+
+
+
+● PALABRA RESERVADA 'FINAL':
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+'final' es una palabra reservada de Java. Tiene una semántica distinta según donde se la utilice. Puede aplicarse tanto a atributos,
+métodos o clases:
+
+- Cuando se declara 'final ATRIBUTO' transformamos el atributo en una CONSTANTE. Se colocará el nombre del atributo en mayúscula,
+para identificar que es una 'constante' y por lo tanto el valor del mismo no podrá ser modificado.
+
+ final String VARIABLE_CONSTANTE = "valor";
+
+- Un método puede tener la palabra reservada 'final' cuando queremos evitar que las clases hijas puedan sobreescribir
+el comportamiento. Es decir, prohibe que se pueda realizar otra implementación del método.
+
+ public final void metodo (){
+}
+
+- Cuando una clase posee la palabra 'final' se elimina la posibilidad de herencia en dicha clase. Es decir, se evita la
+posibilidad de que se creen clases hijas de la clase que este declradad como 'final'.
+
+
+
+● POLIMORFISMO - SOBRECARGA Y SOBREESCRITURA DE MÉTODOS
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Polimorfismo desde el concepto científico se refiere a aquello que puede adoptar múltiples formas. En POO será la posibilidad
+de que un método adopte MÁS DE UNA FORMA, que pueda modificar su comportamiento de acuerdo a una determinada necesidad o
+situación. Es decir, que un mismo 'método' pueda ser utilizado desde distintas clases, y que a su vez cada clase tenga su
+propia implementación del método.
+
+Existen 2 tipos de polimorfismo, sin redefinición de métodos y con redefinición de métodos, pero en ambos casos los métodos
+presentaran diferentes funciones.
+
+• POLIFORMISMO SIN REDEFINICION DE 'MÉTODOS': "METHOD OVERLOADING"
+Mas conocido como 'Sobrecarga de Métodos', es la posibilidad de que un método con la misma firma (nombre) cumpla funciones
+diferentes a través del ingreso de sus 'parámetros'. Es decir, que de acuerdo al tipo y cantidad de parámetros ingresados
+al momento de invocar el método, hará que este tenga un comportamiento u otro, tome una forma u otra.
+
+public class id_Clase {
+
+    //Atributos
+    ........
+
+    //Métodos
+    public void Metodo_SobreCargado(parametroA){
+            Bloque_Instucciones1
+    }
+
+    public void Metodo_SobreCargado(parametroA, parametroB){
+            Bloque_Instucciones2
+    }
+
+    public void Metodo_SobreCargado(parametroA, parametroB, parametroC){
+            Bloque_Instucciones3
+    }
+}
+
+
+• POLIFORMISMO CON REDEFINICION DE 'MÉTODOS': "OVERRIDING METHODS" ==> @Override
+La 'Sobreescritura de Métodos', es un concepto que se puede aplicar a partir de la HERENCIA DE CLASES. Cuando se 'hereda' en
+los Lenguajes orientados a objetos, una 'subclase' hereda todos los métodos accesibles de la 'clase padre'. En el caso
+que se necesite modificar la funcionalidad del 'método heredado', se podrá REDEFINIR EL COMPORTAMIENTO en la 'clase hija'
+conservando la misma 'firma' (nombre).
+Es decir, que cuando una 'clase padre' le HEREDA el 'método N' a una 'clase hija', la sobreescritura de métodos nos dara la
+posibilidad de el que 'método n', tenga diferentes comportamientos acorde a la clase desde la que fue instanciado. Es decir,
+que el 'método N' tendra un determinado comportamiento cuando sea invocada desde un 'objeto clase padre' y tendrá otro
+comportamiento cuando sea invocado desde un 'objeto clase hija'.
+Es común ver la notación "@Override" en los métodos sobreescritos. Si bien no es obligatoria, siempre es recomendable
+colocarla para identificar fácilmente que el método se encuentra en una de nuestras clases padres y ha sido sobreescrito.
+
+public class Clase_Padre {
+
+    //Métodos
+
+    public void Metodo_Padre(parametros_padre){
+            Bloque_Instucciones_Padre
+    }
+}
+
+public class Clase_Hija extends Clase_Padre {
+
+    //Métodos
+
+    @Override
+    public void Metodo_Padre(parametros_padre){
+        Bloque_Instucciones_Hija
+    }
+}
+
+* Diferencia entre el concepto de 'Sobrecarga' y 'Sobreescritura':
+- Para sobrecargar un método hay que DUPLICAR el método (en la misma clase) y utilizar SI O SI 'parámetros' diferentes entre un método y otro.
+De esta forma de acuerdo a los parámetros con los que se invoque el método, tendrá un determinado comportamiento u otro.
+
+-Al sobreescribir un método NO SE DUPLICA en la misma clase, se registra con la misma 'firma' en otra Clase_Hija y SI O SI la
+lista de parámetros debe ser igual y respetarse. En el caso de sobreescribir la finalidad es conservar la firma extacmente igual
+en todas las clases y cambiar únicamente el compartamientointerno del método. Es decir, que el método conserva su firma y sera invocado exactamente
+con los mismos igual en todos sus casos pero su comportamiento dependerá de la clase que instanciado el objeto.
