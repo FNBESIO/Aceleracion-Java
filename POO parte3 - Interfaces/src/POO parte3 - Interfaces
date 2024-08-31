@@ -1,0 +1,138 @@
+ 													● INTERFACES:
+ 													¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+El concepto de Abstracción se puede ampliar mucho mas ya que podemos pensar en clases totalmente abstractas a la hora de
+analizar un problema y definir una serie de métodos genéricos (sin cuerpo) pero que CONCEPTUALMENTE indiquen la acción que
+habría que reallizar.
+Cuando hablamos de CLASES totalmente ABSTRACTAS podemos recurrir a una variante de las clases llamadas INTERFACES.
+Una INTERFAZ entonces sera un contrato entre un concepto y una implementación. Se aplica para clases que están distribuidas en
+el sistema y que no necesariamente esten relacionadas por herencia, pero necesitan tener un comportamiento conceptualmente similar
+en determinadas circunstancias. Es una declaración de VOCABULARIO, un conjunto de métodos sin su implementación, donde se define el
+nombre de la firma de los métodos y cual sera la función que tendra conceptualmente. Es decir, se va a indicar cual la función del
+método, pero no como realizar la acción.
+Posteriormente la clase que implemente la Interface, estará obligada a definir como sera el comportamiento del método sobreescribiendo
+el mismo. Con las Interfaces entonces vamos a definir un 'protocolo de comportamientos (acciones)' entre clases que pueden o no tener
+relación de herencia.
+Una Interfaz puede heredar de otras Interfaces. Recordemos que Java solo permite la herencia simple (heredar de una sola clase)
+pero con las interfaces podemos simular la 'herencia múltiple'. Una clase podra tener solamente una 'clase padre', pero
+podra implementar la cantidad de 'interfaces' que se desee.
+Otra de las ventajas de trabajar con interfaces sera que al utlizar la mismas se puede omitir el modificador de acceso 'public',
+la palabra reservada 'static' o 'final', ya que por definición todos los métodos seran abstractos y de acceso público, y
+todos los atributos seran tambien estáticos o constantes (finales).
+Las INTERFACES no tendran constructores propios, ya que como en las clases abstractas no se podrán instanciar objetos
+de la misma, pero si se podrán instanciar desde cualquier clase que la implemente.
+
+Una INTERFACE entonces sera una declaración de COMPORTAMIENTO y VOCBULARIO  en común, es decir, un CONJUNTO DE MÉTODOS sin su
+implementación (sin cuerpo) destinado a un conjunto de clases que necesiten realizar conceptualmente las mismas acciones. Por lo tanto,
+serán las implementaciones quienes van a defir el comportamiento. En otras palabras las INTERFACES NOS VAN A PERMITIR TRABAJAR CON
+POLIMORFISMO Y DEFINEN EL VOCABULARIO.
+
+Para indicar que una 'clase' implementará una INTERFACE se utilizará la palabra reservada 'implement'.
+
+.Sintaxis:
+public interface id_Interface {
+
+    metodo_abst(Parámetro id_par);      -----> Solo se declara la firma.
+
+}
+
+
+public class id_Clase implements id_Interface {
+
+    @Override
+    public metodo_abst(Parámetro id_par){
+
+       ---> Implemtancion (Código) <---
+    };
+}
+
+
+♦ OBJETOS INTERFACES COMO PARÁMETRO:
+Cualquier clase que implemente una interfaz estará obligada a implementar y sobreescribir sus métodos. Por este motivo, es que
+se podrán usar 'objetos abstractos' de la Interfaz con sus respectivos métodos abstractos al momento de escribir código. Es
+decir, un 'objeto abstracto' hace referencia a que únicamente se podrá ingresar como parámetro un objeto instanciado desde
+cualquier clase que implemente la interfaz. Por definición este objeto tendrá sí o sí entre sus métodos disponibles,
+al método abstracto de la interfaz sobreescrito. De esta forma se podrá escribir código, utilizando objetos donde su comportamiento
+estará determinado por la clase que fue instanciado.
+
+
+    public void Método (Interfaz obj_gen){
+        .....
+        obj_gen.metodo_gen();
+        .....
+    }
+
+
+♦ MÉTODOS DEFAULT:
+Solo se permiten introducir en interfaces, por lo tanto no existen en clases. Estos métodos, al igual que todos los demás en
+las interfaces, son de manera implícita públicos. Su principal diferencia es que no son abstractos como el resto y
+proporcionan una implementación.
+Los métodos default ya estarán disponibles en las clases que implementen la Interfaz, sin haberlos sobreescrito, ni
+tampoco con la obligación de hacerlo. Otra característica es que no sera necesario instanciar un objeto de una clase, solamente
+con crear un contendor de la interfaz sera sufuciente para poder hacer uso de estos métodos default.
+
+public interface id_Interface {
+
+    metodo_abst(Parámetro id_par);
+
+     public default metodo_default(){
+        .......
+        Bloque de Codigos
+        .......
+    }
+}
+
+
+
+● INTERFACES FUNCIONALES (Java 8):
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Es toda aquella interfaz que tenga solamente un único método abstracto. Es decir, puede implementar uno o más métodos default,
+pero deberá tener forzosamente un método abstracto.
+Una de las pricipales ventajas de trabajar con interfaces funcionales sera que sus métodos NO necesitan una clase para poder
+implmentarse. Es decir, que para poder ejecutar los métodos de las interfaz funcional, no será necesario instanciar un
+dbjeto de ninguna clase. Simplemente con crear una variable contendor de la interfaz sera suficiente para poder hacer uso del
+método abstracto a través de una expresion lambda, o utlizar cualquiera de sus métodos default.
+Cuando una 'expresion lambda' es asignada a una interfaz funcional, siempre sera implementada en el método abstracto,
+es por esta razón que solo puede existir un único método abstracto y muchos Defaults. Una forma de asegurarnos de que estamos
+definiendo correctamente una interface funcional, es anotarla con @FunctionalInterface, ya que al anotarla el IDE
+automáticamente nos arrojara un error si no cumplimos con las reglas de una interface funcional.
+
+. EJEMPLO:
+
+@FunctionalInterface
+public interface Interfaz_Funcional {
+
+    public String metodo_abst(String name);  <----- MÉTODO ABSTRACTO
+
+
+    public default String metodo_default1(){
+        return  "Hello World";
+    }
+
+    public default String metodo_default2(){
+        return "Hola Universo";
+    }
+
+    public default String metodo_default3(){
+        return "Hola Mundo";
+    }
+}
+
+
+public class Test_InterfazFuncional {
+
+	public static void main(String[] args) {
+
+        Interfaz_Funcional in_fun1 = (name) -> "Hello " + name;     <--- SE DECLARA DIRECTAMENTE COMO SE VA IMPLEMENTAR EL
+                                                                         MÉTODO ABSTRACTO DE LA 'Interfaz_Funcional'
+        System.out.println(in_fun1.metodo_abst("Juan Rosales"));
+
+        System.out.println(in_fun1.metodo_default1());
+        System.out.println(in_fun1.metodo_default2());
+        System.out.println(in_fun1.metodo_default3());
+
+	}
+
+}
+
+Como vemos la expresion Lambda siempre se asignará al método abstracto, mientras que los métodos 'metodo_default1, 2, 3 '
+continuan con la misma implementación que viene desde la Interface.
