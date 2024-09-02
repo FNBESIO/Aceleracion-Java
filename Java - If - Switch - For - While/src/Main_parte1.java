@@ -1,9 +1,8 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main_parte1 {
     public static void main(String[] args) {
-        System.out.println("● ESTRUCTURA DE CONTROL DE FLUJO: 'CONDICIONALES'");
-        System.out.println("• CONDICIONAL 'IF':");
+        System.out.println("• 'IF':");
 
         byte num = 15, num2 = 25;
 
@@ -13,7 +12,7 @@ public class Main {
         System.out.println("Sentencia fuera del 'if'");
 
 
-        System.out.println("• CONDICIONAL 'IF ELSE':");
+        System.out.println("• 'IF ELSE':");
         if (num2 < 20) {
             System.out.println("sentenciaTRUE");
         } else {
@@ -21,7 +20,7 @@ public class Main {
         }
 
 
-        System.out.println("• CONDICIONAL 'ELSE IF':");
+        System.out.println("• 'ELSE IF':");
         byte x = 20;
 
         if (x == 10) {
@@ -34,7 +33,7 @@ public class Main {
             System.out.println("NINGUNO");
         }
 
-        System.out.println(".ESTRUCTURA SWITCH");
+        System.out.println(". ESTRUCTURA SWITCH");
         System.out.println(". Ejemplo A: ");
 
         byte num_switch;
@@ -126,6 +125,19 @@ public class Main {
             default:
                 System.out.println("DEFAULT");
                 break;
+        }
+
+
+        System.out.println(". 'WHILE':");
+        int num_while = 0;
+        while (num_while <= 20) {
+            System.out.println(num_while);
+            num_while++;
+        }
+
+        System.out.println("• ESTRUCTURA FOR:");
+        for (byte i = 0; i < 20; ++i) {
+            System.out.println(i);
         }
 
     }

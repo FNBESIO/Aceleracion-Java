@@ -92,3 +92,74 @@
             sentenciaDEFAULT;
             break;
     }
+
+    . BREAK AND CONTINUE
+    La manera estándar para salir de una estructura de bucle es que la condición se convierta en falsa, pero a veces es necesario interrumpir
+    la ejecución de un bucle for, while o do-while. Los comandos  break y continue ofrecen esa salida lateral.
+    El 'break' sale del bucle más interno que la contiene. Hace que salga inmediatamente del bloque que se está ejecutando. Es válido
+    para bifurcaciones y bucles.
+    El comando 'continue' solo salta hasta el final de la iteración actual. Fuerza una próxima iteración sin ejecutar todas las sentencias
+    que están después. Es decir, La sentencia continue fuerza al bucle a comenzar la siguiente iteración desde el principio.
+
+
+  									 ESTRUCTURAS DE CONTROL DE FLUJO: 'REPETITIVAS'
+    								¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+. BLUCLE: Permiten REPETIR la ejecución de un bloque determinado de código. Sirven para el caso de querer ejecutar una determinada
+cantidad de veces un 'bloque de códigos'. Se puede ejecutar una cantidad específica de veces o hasta que se cumpla una condición
+determinada.
+
+
+● BUCLE 'WHILE'
+Permite ejecutar un bloque de código en forma repetitiva 'MIENTRAS' (while) se cumpla la condición. La condición se evalúa al inicio
+del ciclo. Si es 'verdadera', ingresa en el bucle while, se ejecuta el bloque de códigos y se volverá a evaluar el resultado de la condicion.
+Únicamente cuando la condición tenga como resultado un valor 'false' dejará de ejecutar el bloque de códigos. Es decir, mientras la condición
+sea verdadera se va a ejecutar el while.
+
+. Sintaxis
+
+    while(condición){
+
+    	Bloque de Codigos;
+	}
+
+•  BUCLE DO WHILE
+Este bucle es igual a la anterior, la única diferencia es que la condición se evalúa al final del ciclo. Esto va asegurar que
+el bloque de código se ejecute al menos una vez, y luego se evalue la condicion.
+
+. Sintaxis BUCLE DO WHILE
+
+    do {
+		bloque de códigos;
+	}
+    while(condición);
+
+
+● BUCLE FOR
+Es otra estructura de repeticion y la sentencia “for” realiza un bucle un determinado número de veces. Se puede explicar el
+funcionamiento del 'BUCLE FOR' a traves del 'while'.
+
+        byte x=1;
+
+        while (x<=15)                	// Condicion
+        {   System.out.println(x);  	// Accion       (Condicion TRUE)
+            ++x;                    	// Postaccion   (Condicion TRUE)
+        }
+
+El 'FOR' es una estructura de repetición pensada de forma tal que en el encabezado del mismo se defina la cantidad de veces
+que se va a ejecutar el bloque de códigos.
+Se lee de forma horizontal, en la inicializacion se declaran variables con su valor incial, en la condición vamos a definir
+generalmente la cantidad de veces que se va a ejecutar el bucle mediante algún operador de comparación y  finalmente en
+'postaccion' la última sentenciaa ejecutar (antes de evaluar nuevamente si se cumple o no la condición).
+En el campo de inicialización y postaccion se pueden declarar más de una variable seprando las mismas con , (coma).
+
+.Sintaxis:
+
+        for (Incializacion; Condicion; Postaccion){
+            Accion;
+        }
+
+        .Ejemplo:
+        for (byte i; i > valor; ++i){
+        	sentencia_for;
+        }
+
