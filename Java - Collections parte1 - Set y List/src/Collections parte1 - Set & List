@@ -1,0 +1,144 @@
+ 												  COLECCTIONS
+												  ¨¨¨¨¨¨¨¨¨¨¨
+• COLECCIONES
+Es un modo de agrupar objetos (de manera similar al concepto de Array) y brindarles determinadas carectiricas (Métodos). Las
+colecciones seran como un contenedor de objetos. Las Colecciones no solo brindarán la oportunidad de agrupar objetos del mismo
+tipo y sino que tambien van a brindar la posibilidad  de generar colecciones que reciban distintos tipos de objetos y no
+tengan relación entre sí.
+
+A través de los arrays podemos agrupar bajo un mismo identificador una cantidad grande de elementos, pero el problema es
+que debemos saber de antemano el tamaño del mismo Array, ya que una vez creado este no varía. No se pueden añadir elementos
+nuevos ni eliminar. Tienen almacenamiento ESTATICO.
+Para poder AGRUPAR elementos de forma DINÁMICA, Java nos proporciona el conjunto de interfaces y clases llamadas COLLECTIONS.
+A través de las mismas podremos agregar o eliminar objetos sin indicar un tamaño único o inicial.
+Estas clases e interfaces están estructuradas en una jerarquía. La interfaz 'Collection' es la raíz de donde
+heredan las mayoría de las interfaces utilizadas para el manejo de las Colecciones.
+
+
+
+					     					COLLECTION (Interfaz)
+					          					  ↓
+					   					    AbstractCollection
+         _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ ↓ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+	    ↓										  ↓												  ↓
+       SET (Interfaz)	         	        LIST (Interfaz)				                        QUEUE (Interfaz)
+        ↓	                                      ↓                                       _ _ _ _ ↓ _ _ _ _ _ _ _
+    AbstractSet				                AbstractList				                 ↓                       ↓
+    _ _ ↓ _ _ _			     	          _ _ _ _ ↓ _ _ _ _                     ------→Deque (Interfaz)    AbstractQueue
+  ↓            ↓                          ↓                 ↓                   ↑         ↓                       ↓
+HashSet        SortedSet(Interfaz)    ArrayList  AbstractSequentialList_ _ _ _↑      ArrayDeque             PriorityQueue
+  ↓                ↓                                        ↓
+LinkedHashSet   TreeSet                                  LinkedList
+
+
+Para poder crear una 'colecction' y poder acceder a todos sus métodos, se debe instanciar la coleccion desde
+alguna clase que implemente la interfaz Collecction directa o inderectamente. Dependiendo de que tipo de
+colection necesitemos crear es desde la clase que vamos a instaciar. Cada una de las clases que implementan
+a Collectionesta diseñada con diferentes fines y propósitos. A medida que se va descendiendo en la cadena de
+herencia aumentará la cantidad de métodos que nuestra coleccion tendrá disponible.
+
+Ejemplo1 :
+
+Colecction c1;
+c1 = new ArrayList();
+c1.add();
+.....
+
+Ejemplo2
+
+List lista1;
+lista1 = new ArrayList();
+lista1.add();
+.....
+
+♦ Genericos:
+Las Colecciones tienen <Genéricos> por lo que se determinar el tipo de objeto a almacenar.
+Con los Diamante "<>" se indica el tipo de dato que sera la colecction creada. Es decir, que en dicha
+coleccion solo se podrán agregar objetos del tipo de dato declarados entre los diamantes "<>". Hacer el correcto uso de los
+<Genericos> en las colecciones, nos ayudara a evitar escribir validaciones. Siempre se hace referencia a una
+clase. Se utiliza la clase object para el uso de cualquier Elemento <Object>.
+Si no se ingresa ningun generic <> el sistema por default asume que se trata de un Elemento <Object>. Es decir, si no se
+ingresa ningun <Generic> o se ingresa <Object>, la coleccion podra recibir cualquier objeto.
+
+Ejemplo1:
+
+Collection<Object> c1;
+c1 = new ArrayList<Object>();
+
+Ejemplo2:
+List<Object> lista1;
+lista1 = new ArrayList<Object>();
+
+Ejemplo3:
+List <Auto> lista2;
+lista2=new ArrayList<Auto>();  ----> Se indica que 'lista2' únicamente podra recirbir objetos del tipo <Auto>.
+
+
+. INTERFACE LIST:
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+La interfaz 'LIST' representa una lista tipo array con índices, pero a diferencia de los arrays, List y sus
+implentaciones serán DINAMICAS. Es decir, que una vez creada la lista se pueden agregar más elementos o eliminar elementos.
+La interfaz ist admite elementos duplicados y sus elementos se basan en un índice. Es decir, tiene un acceso 'posicional' a
+sus elementos, por lo que va a respetar el orden en el que sus elementos fueron declarados.
+Sobrecarga con índices los métodos add(i), remove(i) y get(i) ofreciendo la posibilidad de acceder posicionalmente.
+La interfaz List entonces tiene acceso posicional a sus elementos y manipula elementos en función de su posición en la lista.
+Tienen la capacidad de buscar un elemento concreto de la lista y devolver su posición.
+Para poder crear un objeto que contenga los métodos de la Interface List, se deberá instanciar el objeto desde alguna de sus
+implementaciones, como por ejemplo 'Arraylist'.
+
+
+         LIST (Interfaz)
+                ↓
+    	   AbstractList
+    	_ _ _ _ ↓ _ _ _ _
+       ↓                 ↓
+  ArrayList     AbstractSequentialList------→Deque (Interfaz)
+                         ↓
+                     LinkedList
+
+
+- ArrayList es la implementacion que mejor Performance tiene en condiciones normales. Intermente utiliza un Array para
+alamacenar los Elementos que tiene adentro. Es la implementación mas típica de la Interfaz. Se basa en un Array
+redimensionable que aumenta su tamaño según crece la Colección de elementos o disminuye a medida que los mismo se vayan
+eliminando. Es la que mejor rendimiento tiene sobre la mayoría de situaciones y como podemos observar se parece mucho a la
+forma que trabajan los Arreglos comunes con acceso por índice. Arraylist es mas performante para Agregar y Quitar Elementos.
+
+- LinkedList en líneas generales es un poco mas lenta que ArrayList, pero es una lista doblemente enlazada. Cada Elemento que
+pertence al LinkedList tiene un puntero apuntando a el proximo Elemento y su Elemento anterior. Linkedlist es mas performante
+para recorrer el listado.
+
+- La 'Clase AbstractList' proporciona una implementación esquelética de la Interfaz dándole comportamiento a los nuevos métodos
+que utilizaremos.
+
+- La 'Clase AbstractSequentialList' proporciona una implementación esquelética de la Interfaz dándole acceso secuencial a la
+colección.
+
+Las implementaciones mas conocidas son Arraylist y LinkedList.
+
+♦ ¿Si estas dos implementaciones recorren la Colección como fueron insertados cual debo usar?
+LinkedList: Permite inserciones o eliminaciones en mejor tiempo utilizando los iteradores, pero solo ACCESO SECUENCIAL de
+elementos.
+ArrayList: Permite un ACCESO de lectura ALEATORIO rápido, para que puedas obtener cualquier elemento en un tiempo mas optimo.
+Pero agregar o eliminar desde cualquier lugar menos el final requiere desplazar todos los últimos elementos.
+
+
+● MÉTODOS DE LA INTERFAZ 'LIST':
+Adicionalmente de los métodos que nos proporciona la Interfaz Collection, List y AbstractList añaden unos nuevos:
+
+Tipo 			Método 					Descripción
+void                add(int index, E element)               Inserta el elemento especificado en la posición especificada en
+                                                            esta lista.
+E                   get(int index)                          Devuelve el elemento en la posición especificada en esta lista.
+E                   set(int index, E element)               Reemplaza el elemento en la posición especificada en esta lista
+                                                            con el elemento especificado.
+E                   remove (int index)                      Elimina el elemento en la posición especificada en esta lista.
+int                 indexOf (Object o)                      Devuelve el índice de la primera aparición del elemento
+                                                            especificado en esta lista, o -1 si esta lista no contiene el
+                                                            elemento.
+ListIterator<E>     listIterator()                          Devuelve un iterador de lista sobre los elementos de esta lista.
+ListIterator<E>     listIterator (int index)                Devuelve un iterador de lista sobre los elementos de esta lista,
+                                                            comenzando en la posición indicada.
+List<E>             subList (int fromIndex, int toIndex)    Devuelve una lista de la parte de esta lista entre el especificado
+                                                            fromIndex, el inclusivo y el toIndex exclusivo.
+default void        sort (Comparator<? super E> c)          Ordena esta lista según el orden inducido por el especificado
+                                                            Comparator.

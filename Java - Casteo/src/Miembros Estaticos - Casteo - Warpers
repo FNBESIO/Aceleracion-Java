@@ -1,0 +1,77 @@
+                                         MIEMBROS ESTÁTICOS
+										 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+• ATRIBUTOS Y MÉTODOS DE INSTANCIA
+Son aquellos atributos y métodos que para acceder a los mismos se deberá crear un objeto de la clase. Únicamente instanciando
+un objeto se podrá acceder a los mismos. Pertenecen al objeto, no a la clase.
+
+• ATRIBUTOS Y MÉTODOS DE CLASE ESTÁTICOS: "STATIC"
+Son aquellos artibutos y métodos que no sera necesario instanciar un objeto de la clase para acceder a los mismos.
+Pertenecen a la clase y no a un objeto, por lo tanto, se podrá acceder a través de la misma clase. Para declarar un atributo
+o método de clase estático se utiliza la palabra reservada 'static'.
+
+'static' se usa principalmente para el manejo eficiente de la memoria de nuestro programa. Se usa en la mayoría de los casos
+para datos en común, por ejemplo, el nombre de la empresa, la versión del programa, etc. Obtiene el dato en memoria solo una
+vez al momento de la carga de la clase. Con una constante estática asignamos un solo espacio de memoria para ese miembro,
+en cambio cuando esa constante la hacemos miembro de instancia (único para cada objeto) reserva un espacio de memoria
+por cada objeto. Es una palabra reservada adicional y no limita que se le pueda asignar un modificador de
+acceso según sea nuestro requerimiento.
+Hay dos cosas importantes a tener en cuenta:
+1. El método estático no puede utilizar Atributos no estáticos ni llamar directamente a un Método no estático.
+2. this y super no se pueden utilizar en un contexto estático.
+
+
+
+                                CASTEO: CONVERSION DE TIPOS DE DATOS
+  								¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Java es un Lenguaje de tipado fuerte, cada Variable u objeto tendra su 'tipo de dato' asociado. Muchas veces nos encontraremos con
+la necesidad de convertir un tipo de dato a otro, y en estos casos es que el CASTEO (casting). Es decir, que el casting de una
+variable sera un procedimiento para lograr la conversión de un tipo de dato a otro tipo de dato.
+Existen dos tipos de casteo implícito y explícito:
+
+● CASTEO ÍMPLICITO
+Esto ocurre cuando necesitamos convertir un tipo de dato más pequeño en otro más grande. No se necesita escribir código para que se lleve a
+cabo. Es decir, cuando se coloca un valor pequeño en un contenedor más grande, no va a generar incosnsistencia. (Wide = amplio/a).
+
+
+● CASTEO EXPLÍCITO (Narrowing Casting)
+Se produce cuando se realiza una conversión estrecha (narrow = estrcho/a), es decir, cuando se coloca un valor grande en un
+contenedor mas pequeño. Son suceptibles de perdida de datos y deben realizarse a través de código fuente, de forma explicita.
+Necesariamente tenemos que escribir entre paréntesis el tipo de dato al que queremos convertir (CASTEAR). Si se castean Datos
+incompatibles,  no dara un error en tiempo de compilacion pero arojarra valores erroroneos.
+
+
+int a = (int) b; => mediante la aclaracion de '(int)' le estamos indicando a Java que convierta ese valor de b forzosamente a un int.
+
+
+
+                                                  WRAPPER - CLASES ENVOLTORIO
+  												  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+(wrapper => envoltura)
+Muchas veces vamos a encontrar la necesidad de convertir un dato, por ejemplo un 'valor numérico' a un 'String' o viceversa.
+También nos vamos a encontrar mas adelante con Objetos en Java que no permiten el uso de los valores primitivos.
+Java nos provee una forma de 'envolver' los datos primitivos en un Objeto (Wrapper Class) por cada uno de los 8 tipos que
+existe. Además nos dan una variedad de métodos de utilidad que los datos primitivos no poseen, la mayoría de estos están
+relacionados con varias conversiones. Otro punto importante es que nos permite usar el null a diferencia de los primitivos.
+
+Los WRAPPER entonces SERAN LA RESPRESENTACIÓN DE LOS VALORES PRIMITIVOS COMO OBJETOS, y seran utilizados para envolver los
+tipos de datos primitivos. En general tienen dos constructores:
+- Con los valores Primitivos como parámetro.
+- Con los valores como cadena de caracteres como parámetro.
+Tienen un método estático valueOf() que retorna un objeto Wrapper.
+
+• CLASE INTEGER
+Utilizada para envolver el tipo de dato primitivo 'int'. Es una Sub Clase de java.lang.Number.
+
+Integer miEntero = new Integer(50);
+Integer miOtroEntero = Integer.valueOf("50");
+
+
+• CLASE FLOAT
+Utilizada para envolver el tipo de dato primitivo 'float'. Es una subclase de java.lang.Number.
+
+Float miPuntoFlotante = new Float(45.67);
+Float miOtroPuntoFlotante = Float.valueOf(45.67);
+
+
+La 'Clase Number' representa el concepto abstracto de un numero en Java. Tiene como objetivo ser la superclase de los
+Wrappers de los tipos de dato numéricos primitivos. Es una clase abstracta, es decir que no se puede instanciar.
