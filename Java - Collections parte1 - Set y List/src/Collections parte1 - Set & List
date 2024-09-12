@@ -1,18 +1,18 @@
  												  COLECCTIONS
 												  ¨¨¨¨¨¨¨¨¨¨¨
-• COLECCIONES
-Es un modo de agrupar objetos (de manera similar al concepto de Array) y brindarles determinadas carectiricas (Métodos). Las
-colecciones seran como un contenedor de objetos. Las Colecciones no solo brindarán la oportunidad de agrupar objetos del mismo
-tipo y sino que tambien van a brindar la posibilidad  de generar colecciones que reciban distintos tipos de objetos y no
+● COLECCIONES
+A través de los arrays podemos agrupar bajo un mismo identificador una cantidad grande de elementos, pero el problema es
+que debemos saber de antemano el tamaño y tipo del Array, ya que una vez creado este no varía. No se pueden añadir elementos
+nuevos ni eliminar. Tienen almacenamiento ESTÁTICO.
+Para poder AGRUPAR elementos de forma DINÁMICA, Java nos proporciona un conjunto de interfaces y clases llamadas COLLECTIONS.
+A través de las mismas podremos agregar o eliminar objetos sin indicar un tamaño único o inicial.
+Es un modo de agrupar objetos (de manera similar al concepto de Array) y brindarles determinadas carectiricas (métodos). Las
+colecciones seran como un contenedor de objetos. Las colecciones no solo brindan la oportunidad de agrupar objetos del mismo
+tipo, sino que además van a brindar la posibilidad de generar colecciones que reciban distintos tipos de objetos y no
 tengan relación entre sí.
 
-A través de los arrays podemos agrupar bajo un mismo identificador una cantidad grande de elementos, pero el problema es
-que debemos saber de antemano el tamaño del mismo Array, ya que una vez creado este no varía. No se pueden añadir elementos
-nuevos ni eliminar. Tienen almacenamiento ESTATICO.
-Para poder AGRUPAR elementos de forma DINÁMICA, Java nos proporciona el conjunto de interfaces y clases llamadas COLLECTIONS.
-A través de las mismas podremos agregar o eliminar objetos sin indicar un tamaño único o inicial.
 Estas clases e interfaces están estructuradas en una jerarquía. La interfaz 'Collection' es la raíz de donde
-heredan las mayoría de las interfaces utilizadas para el manejo de las Colecciones.
+heredan las mayoría de las interfaces utilizadas para el manejo de las colecciones.
 
 
 
@@ -31,11 +31,11 @@ HashSet        SortedSet(Interfaz)    ArrayList  AbstractSequentialList_ _ _ _�
 LinkedHashSet   TreeSet                                  LinkedList
 
 
-Para poder crear una 'colecction' y poder acceder a todos sus métodos, se debe instanciar la coleccion desde
+Para poder crear una 'colecction' y poder acceder a todos sus métodos, se debe instanciar la desde
 alguna clase que implemente la interfaz Collecction directa o inderectamente. Dependiendo de que tipo de
-colection necesitemos crear es desde la clase que vamos a instaciar. Cada una de las clases que implementan
-a Collectionesta diseñada con diferentes fines y propósitos. A medida que se va descendiendo en la cadena de
-herencia aumentará la cantidad de métodos que nuestra coleccion tendrá disponible.
+colection necesitemos, es desde la clase que vamos a instaciar. Cada una de las clases tienen diferentes
+fines y propósitos. A medida que se va descendiendo en la cadena de herencia aumentará la cantidad de
+métodos que nuestra coleccion tendrá disponible.
 
 Ejemplo1 :
 
@@ -51,14 +51,14 @@ lista1 = new ArrayList();
 lista1.add();
 .....
 
-♦ Genericos:
-Las Colecciones tienen <Genéricos> por lo que se determinar el tipo de objeto a almacenar.
-Con los Diamante "<>" se indica el tipo de dato que sera la colecction creada. Es decir, que en dicha
-coleccion solo se podrán agregar objetos del tipo de dato declarados entre los diamantes "<>". Hacer el correcto uso de los
-<Genericos> en las colecciones, nos ayudara a evitar escribir validaciones. Siempre se hace referencia a una
-clase. Se utiliza la clase object para el uso de cualquier Elemento <Object>.
-Si no se ingresa ningun generic <> el sistema por default asume que se trata de un Elemento <Object>. Es decir, si no se
-ingresa ningun <Generic> o se ingresa <Object>, la coleccion podra recibir cualquier objeto.
+♦ Genéricos:
+Las colecciones tienen <Genéricos> y a través de ellos se va a determinar el tipo de objeto a almacenar.
+Con los diamante "<>" se indica el tipo de dato que sera la colecction. Es decir, que en dicha coleccion
+solo se podrán agregar objetos del tipo de dato declarados entre los diamantes "<>". Hacer el correcto uso de los
+<Genericos> en las colecciones, nos ayudará a evitar escribir validaciones. Siempre se hace referencia a una
+clase. Se utiliza de forma predeterminada la clase Object para el uso de cualquier cualquier coleccion.
+Si no se ingresa ningun generic <> el sistema por default asume que el generico sera Object. Es otras palabras,
+si no se ingresa ningun <Generic> o se ingresa <Object>, la coleccion podra recibir cualquier objeto.
 
 Ejemplo1:
 
@@ -74,18 +74,16 @@ List <Auto> lista2;
 lista2=new ArrayList<Auto>();  ----> Se indica que 'lista2' únicamente podra recirbir objetos del tipo <Auto>.
 
 
-. INTERFACE LIST:
+● INTERFACE LIST:
   ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
-La interfaz 'LIST' representa una lista tipo array con índices, pero a diferencia de los arrays, List y sus
+La interfaz 'LIST' representa una lista como si fuese un array con índices, pero a diferencia de los arrays, List y sus
 implentaciones serán DINAMICAS. Es decir, que una vez creada la lista se pueden agregar más elementos o eliminar elementos.
-La interfaz ist admite elementos duplicados y sus elementos se basan en un índice. Es decir, tiene un acceso 'posicional' a
+La interfaz List admite elementos duplicados y sus elementos se basan en un índice. Es decir, tiene un acceso 'posicional' a
 sus elementos, por lo que va a respetar el orden en el que sus elementos fueron declarados.
 Sobrecarga con índices los métodos add(i), remove(i) y get(i) ofreciendo la posibilidad de acceder posicionalmente.
-La interfaz List entonces tiene acceso posicional a sus elementos y manipula elementos en función de su posición en la lista.
-Tienen la capacidad de buscar un elemento concreto de la lista y devolver su posición.
-Para poder crear un objeto que contenga los métodos de la Interface List, se deberá instanciar el objeto desde alguna de sus
+También cuenta con la capacidad de buscar un elemento de la lista por su valor y devolver su posición.
+Para poder crear un objeto que contenga los métodos de la interface List, se deberá instanciar un objeto desde alguna de sus
 implementaciones, como por ejemplo 'Arraylist'.
-
 
          LIST (Interfaz)
                 ↓
@@ -97,48 +95,226 @@ implementaciones, como por ejemplo 'Arraylist'.
                      LinkedList
 
 
-- ArrayList es la implementacion que mejor Performance tiene en condiciones normales. Intermente utiliza un Array para
-alamacenar los Elementos que tiene adentro. Es la implementación mas típica de la Interfaz. Se basa en un Array
-redimensionable que aumenta su tamaño según crece la Colección de elementos o disminuye a medida que los mismo se vayan
+- ArrayList es la implementación que mejor performance tiene en condiciones normales. Intermente utiliza un array para
+alamacenar los elementos que tiene adentro. Es la implementación mas típica de la interfaz. Se basa en un array
+redimensionable que aumenta su tamaño según crece la colección de elementos, o disminuye a medida que los mismo se vayan
 eliminando. Es la que mejor rendimiento tiene sobre la mayoría de situaciones y como podemos observar se parece mucho a la
-forma que trabajan los Arreglos comunes con acceso por índice. Arraylist es mas performante para Agregar y Quitar Elementos.
+forma que trabajan los arreglos comúnes con acceso por índice. Arraylist es mas performante para agregar y quitar elementos.
 
-- LinkedList en líneas generales es un poco mas lenta que ArrayList, pero es una lista doblemente enlazada. Cada Elemento que
-pertence al LinkedList tiene un puntero apuntando a el proximo Elemento y su Elemento anterior. Linkedlist es mas performante
+- LinkedList en líneas generales es un poco más lenta que ArrayList, pero es una lista doblemente enlazada. Cada elemento que
+pertence al LinkedList tiene un puntero apuntando a el proximo elemento y su elemento anterior. Linkedlist es más performante
 para recorrer el listado.
 
-- La 'Clase AbstractList' proporciona una implementación esquelética de la Interfaz dándole comportamiento a los nuevos métodos
+- La 'Clase AbstractList' proporciona una implementación esquelética de la interfaz dándole comportamiento a los nuevos métodos
 que utilizaremos.
 
-- La 'Clase AbstractSequentialList' proporciona una implementación esquelética de la Interfaz dándole acceso secuencial a la
+- La 'Clase AbstractSequentialList' proporciona una implementación esquelética de la interfaz dándole acceso secuencial a la
 colección.
 
-Las implementaciones mas conocidas son Arraylist y LinkedList.
 
-♦ ¿Si estas dos implementaciones recorren la Colección como fueron insertados cual debo usar?
-LinkedList: Permite inserciones o eliminaciones en mejor tiempo utilizando los iteradores, pero solo ACCESO SECUENCIAL de
-elementos.
-ArrayList: Permite un ACCESO de lectura ALEATORIO rápido, para que puedas obtener cualquier elemento en un tiempo mas optimo.
-Pero agregar o eliminar desde cualquier lugar menos el final requiere desplazar todos los últimos elementos.
+● INTERFACE SET:
+ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Representa una lista SIN ÍNDICES, el mismo objeto almacenado es el índice. Por este motivo, NO HAY OBJETOS DUPLICADOS en SET.
+Es decir, ninguna implementación de la interface SET va a permitir elementos duplicados, cada elemento será único.
+Cualquier implementación de la interfaz Set, antes de agregar un elemento, ejecuta internamente un método 'equals (Object obj)'
+contra todos los demás objetos de la colección. Si todos los resultados de las comparaciones retornan falso, quiere decir que el
+objeto todavía no fue agregado a la colección (no esta duplicado) y por lo tanto lo agrega. Por el contrario, si alguna de las
+comparaciones retorna con valor verdadero, quiere decir que el objeto ya fue agregado a la colección y simplemente ignora volver a
+agregar el objeto ya que lo considera duplicado.
+Por lo tanto para cualquier clase (propia, creada por nosotros mismos) que implemente la interfez Set, es importante recordar que
+se debe sobreescribir el método 'equals()' y también el método 'hashCode() ', para que funcione correctamente y no admita datos duplicados.
+Las implementaciones mas conocidas son HashSet, LinkedHashSet y TreeSet.
+
+                 SET (Interfaz)
+                  ↓
+             AbstractSet
+	   _ _ _ _↓ _ _ _ _
+	  ↓                ↓
+    HashSet        SortedSet (Interfaz)
+	  ↓                ↓
+  LinkedHashSet     TreeSet
 
 
-● MÉTODOS DE LA INTERFAZ 'LIST':
-Adicionalmente de los métodos que nos proporciona la Interfaz Collection, List y AbstractList añaden unos nuevos:
+-HASHSET: Es la implementación que mejor performance tiene dentro de la interfaz Set, pero NO conserva el orden en el que
+los elementos fueron ingresados. Almacena todos los elementos en una tabla hash y es la implementación más veloz.
+Para los casos en los que se necesite crear una colección en la que NO se puedan repetir elementos y NO se necesite conservar
+un orden, 'HashSet' es la opción más adecuada para manejar un caudal grande de elementos.
 
-Tipo 			Método 					Descripción
-void                add(int index, E element)               Inserta el elemento especificado en la posición especificada en
-                                                            esta lista.
-E                   get(int index)                          Devuelve el elemento en la posición especificada en esta lista.
-E                   set(int index, E element)               Reemplaza el elemento en la posición especificada en esta lista
-                                                            con el elemento especificado.
-E                   remove (int index)                      Elimina el elemento en la posición especificada en esta lista.
-int                 indexOf (Object o)                      Devuelve el índice de la primera aparición del elemento
-                                                            especificado en esta lista, o -1 si esta lista no contiene el
-                                                            elemento.
-ListIterator<E>     listIterator()                          Devuelve un iterador de lista sobre los elementos de esta lista.
-ListIterator<E>     listIterator (int index)                Devuelve un iterador de lista sobre los elementos de esta lista,
-                                                            comenzando en la posición indicada.
-List<E>             subList (int fromIndex, int toIndex)    Devuelve una lista de la parte de esta lista entre el especificado
-                                                            fromIndex, el inclusivo y el toIndex exclusivo.
-default void        sort (Comparator<? super E> c)          Ordena esta lista según el orden inducido por el especificado
-                                                            Comparator.
+- LINKEDHASHSET: Almacena los elementos en una lista Set enlazada, no es tan veloz como HashSet, pero CONSERVA EL ORDEN DE
+INGRESO de los elementos. Cuando se recuperen los datos, no habrá elementos duplicados y van mantener el mismo orden en
+el que fueron ingresados.
+
+- TREESET: No admite elementos duplicados y alcemacena los elementos por orden natural (alfabético) o un determinado orden
+establecido. Es más lenta ya que almacena sus elementos en una estructura de Arbol rojo-negro, pero PROVEE UN ORDEN PERSONALIZADO
+en los elementos. El TreeSet a medida que se le agregan más elementos la performance va decreciendo en velocidad, pero siempre
+a conservar el orden indicado. En el caso de utilizar clases propias se debe definir como ordenar los objetos de la misma. Para
+lograr esto, hay que implementar la interfaz Comparable, y sobreescribir el método compareTo();
+
+- La Clase 'AbstractSet' Proporciona una implementación esquelética de la interfaz Set y simplemente agrega implementaciones
+para los métodos 'Equals' y 'HashCode'.
+
+- La interfaz 'SortedSet' permite que las clases que la implementen puedan ordernar sus elementos.
+
+● COMPARABLE Y COMPARATOR
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+● COMPARABLE (Orden Natural)
+Esta Interfaz debe ser implementada por la misma clase en la que se desee establecer un criterio de orden. A través de la
+interfaz Comparable se puede implementar el método .compareTo() y se deberá sobreescribir el mismo estableciendo un criterio
+de orden. A través de la implementación del método .compareTo(), se van a comparar dos Objetos (.this y o2 que ingresa como
+Parámetro). Para que el método funcione correctamente se debe seguir la lógica de comparación anteriormente mencionada y
+definir el Orden deseado. Si .this es Mayor que o2 el método debe retonar un Entreo Positivo, si .this es Igual a o2 debe
+retornar un 0(cero) y si .this es Menor que o2 debe retornar un Entero Negativo.
+
+El método compareTo() debe retornar un número entero, donde si el objeto ingresado por parámetro se considera que es menor
+que el objeto que se esta tomando como base de comparación, debe devolver un -1, si es igual un 0, y si es mayor un 1.
+El TreeSet se va a ultilizar el método compareTo() para comparar y crear el orden, teniendo en cuenta esta lógica.
+En otras palabras, a través de la sobreescritura del método compareTo() vamos a poder crear nuestra propia lógica de orden,
+y establecer en caso vamos a retornar un -1, 0 o 1. Es decir, vamos a crear nuestra para lógica para indicar cuando se
+considera que un objeto es menor, igual o mayor que otro objeto de la misma clase.
+
+Una alternativa es utilizar el compareTo() de la Clase String, que ya establece un orden alfabético naturalmente. Según
+como se declaren los Strings a comprar sera el orden de prioridad establecido. Es decir, que el primer atributo que
+comparemos es el que tomará como prioridad para empezar a ordenar,
+
+public class Clase1 implements Comparable<Clase1> {
+
+@Override
+    public int compareTo(Object obj) {
+        String this_Object = this.getAtributo1() + this.getAtributo2() + this.getAtributo3();
+        String parameter_Object = obj.getAtributo1() + obj.getAtributo2() + obj.getAtributo3();
+        return  this_Object.compareToIgnoreCase(parameter_Object);
+    }
+
+}
+
+Si el resultado lo multiplico por -1 invierto el orden.
+
+
+● COMPARATOR (Orden Alternativo)
+La interfaz Collections, tambíen nos va a brindar la posibilidad de poder ordernar listas que no sean necesariamente TreeSet. Existe
+una forma de crear un Clase que se encargue de comparar objetos. Al implementar Comparator, vamos a poder sobreescribir el método
+.compare(). A través de este método, se van a comparar dos objetos que ingresan por parámetro (objeto_1 y objeto_2). Para que el
+método funcione correctamente se debe seguir la lógica de comparación anteriormente mencionada y definir el orden deseado.
+Si objeto_1 es MAYOR que objeto_2 el método debe retonar un int POSITIVO, si objeto_1 es IGUAL a objeto_2 debe retornar un 0 (CERO) y si objeto_1 es
+MENOR que objeto_2 debe retornar un int NEGATIVO.
+
+La gran diferencia con COMPARABLE, es que COMPARATOR va a ser implementado en una Clase, y esta Clase se va a encargar de brindarle
+un orden a los objetos, y no hay que implementar ninguna interfaz en las Clases que se quieren ordenar.
+
+    public class Clase_Comparator implements Comparator <Object> {
+
+    @Override
+        public int compare(Object objeto_1, Object objeto_2) {
+            return o1.parametro().compareTo(o2.parametro());
+        }
+    }
+
+    public static void main(String[] args) {
+        .....
+        Collections.sort(list,Clase_Comparator.java
+                              Persona.java
+                              Test_Compartor.java);
+        ....
+    }
+
+Tambien se puede sobreescribir el método directamente con Api Collections, sin la neceidad de una Clase adicional.
+
+    Collections.sort(list, new Comparator<Persona>(){
+            @Override
+            public int compare(Persona p1, Persona p2) {
+                return p1.getNombre().compareTo(p2.getNombre());
+            }
+
+        }
+    );
+
+
+
+● MÉTODO EQUALS () Y HASCODE()
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Es importante recordar que la Clase OBJECT es padre de todas las clases, es decir, todas las clases heredan de OBJECT. Cuando
+no se indica ninguna la herencia, heredan directamente de OBJECT. En OBJECT hay escrito un comportamiento que va a ser
+heredado a todas las clases.
+
+● ' hashCode ()':
+El método 'public native int hashCode ()' es uno de ellos, es un método heredado de OBJECT. Es un método 'nativo'.
+El método hashCode() en Java devuelve un valor entero (un código hash) que representa el objeto en cuestión. Este código hash
+que se genera al aplicar el método y es un número entero generado a partir del contenido de un objeto. Su función principal es
+facilitar las búsquedas rápidas. En estructuras como un HashSet o HashMap, los objetos se colocan en "buckets" (contenedores)
+con índices basados en su código hash, para organizar y buscar objetos de manera eficiente. En lugar de recorrer toda la colección,
+el código hash se usa para encontrar el bucket en el que esta almacenado el objeto, lo que mejora mucho el rendimiento de las búsquedas
+y brinda un acceso más rápido. Cuando se añade un objeto a una estructura de tipo Set, primero se revisa su código hash para ver si ya
+hay un objeto con el mismo código en el conjunto.
+
+¿Qué es un bucket?
+Un bucket es simplemente un "contenedor" dentro de una estructura de datos que almacena objetos. En el contexto de un HashMap o HashSet,
+los buckets son usados para agrupar objetos que comparten el mismo código hash. Cuando un objeto se inserta en una estructura de hashing, el código
+hash del objeto se utiliza para determinar en qué bucket debe almacenarse. De esta forma, en lugar de buscar el objeto en toda la colección, se puede
+limitar la búsqueda a un único bucket, lo que mejora mucho la eficiencia.
+
+Cuando añades un objeto a un HashSet o HashMap, se invoca el método hashCode() del objeto. Este método genera un número entero que representa el objeto.
+El código hash se convierte en un índice de un array subyacente. Este array representa los buckets, y el índice obtenido por el código hash te dice en
+qué bucket debe colocarse el objeto.
+
+public class Persona {
+    private String nombre;
+
+    public Persona(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre.hashCode(); // En este caso, hashCode() de Persona, va a estar basado en el código hash que genera el nombre.
+    }
+}
+
+Es decir, al ingresar un objeto de Persona en una estructura HashSet o HashMap, se va a almacener el objeto en el 'bucket' que tenga
+como índice el resultado que nos retorna el método hashCode().
+
+● 'equals ()':
+Cuando añades un objeto a una estructura que usa hashing (como un HashSet o HashMap), primero se invoca hashCode() para determinar
+el bucket donde debería estar el objeto. Luego se invoca equals() para comparar el nuevo objeto con los que ya están en ese bucket,
+asegurando que no haya duplicados.
+El método equals() en Java se utiliza para comparar dos objetos y determinar si son lógicamente equivalentes. A diferencia del
+operador ==, que compara las referencias de los objetos (es decir, si apuntan al mismo lugar en la memoria), el método equals() está
+diseñado para comparar el contenido o el estado de los objetos, es decir, si dos objetos tienen los mismos valores en sus atributos.
+
+El método equals() se hereda de la clase base Object, que es la clase madre de todas las clases en Java. La implementación por defecto de equals()
+en la clase Object es:
+public boolean equals(Object obj) {
+    return (this == obj);
+}
+
+Sobrescribir equals() permite definir lo que significa que dos instancias de una clase sean "iguales" en términos de su contenido, no solo por referencia.
+Por ejemplo, en una clase Persona, dos personas pueden considerarse iguales si tienen el mismo nombre y la misma fecha de nacimiento, aunque sean instancias
+diferentes en la memoria.
+
+. Ejemplo de implementación:
+
+public class Persona {
+    private String nombre;
+    private int edad;
+
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        // Verifica si el objeto comparado es el mismo que el actual
+        if (this == obj) return true;
+
+        // Verifica si el objeto es null o no es de la misma clase
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        // Realiza un casting para comparar los atributos relevantes
+        Persona persona = (Persona) obj;
+
+        // Compara los atributos relevantes
+        if (edad != persona.edad) return false;
+        return nombre.equals(persona.nombre);
+    }
+}
+
